@@ -333,6 +333,12 @@ class MendeleyClient(object):
             'access_token_required': True,
             'method': 'delete',
         },
+        'profile_info': {
+            'url': '/oapi/profiles/info/%(id)s/',
+             'required': ['id'],
+            'access_token_required': True,
+            'method': 'get',    
+        }, 
         'contacts': {
             'url': '/oapi/profiles/contacts/',
             'access_token_required': True,
