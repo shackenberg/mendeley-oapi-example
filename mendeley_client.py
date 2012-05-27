@@ -598,6 +598,11 @@ class MendeleyClient(object):
         verifier = raw_input('Enter verification code: ')
         self.request_token.set_verifier(verifier)
         self.access_token = self.mendeley.access_token(self.request_token)
+
+    def get_auth_url(self):
+        self.request_token = self.mendeley.request_token()
+        auth_url = self.mendeley.authorize(self.request_token)
+        return auth_url
     def load_keys(self, filename='mendeley_api_keys.pkl'):
         data = pickle.load(open(filename, 'r'))
         self.request_token = data['request_token']
